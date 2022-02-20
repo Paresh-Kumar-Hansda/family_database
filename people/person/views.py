@@ -5,6 +5,8 @@ from django.views import generic
 
 class PersonListView(generic.ListView):
     model = Person
-
-class PersonDetailView(generic.DetailView):
+from django.contrib.auth.mixins import LoginRequiredMixin
+class PersonDetailView(LoginRequiredMixin,generic.DetailView):
     model = Person
+    def get_queryset(self):
+        return Person.objects.filter(django_username=self.request.user)

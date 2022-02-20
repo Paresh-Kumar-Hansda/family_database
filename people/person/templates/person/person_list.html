@@ -5,7 +5,7 @@
   <ul>
     {% for person in person_list %}
       <li>
-        <a href="{% url "person-detail" person.id %}">{{ person.name }}</a> {% if person.vaccine %}(&#x2714;vaccinated){% else %}(&#10060; not vaccinated){% endif %}
+        <a href="{% url "person-detail" person.id %}">{{ person.name }}</a> {% if person.vaccine %}(&#x2714;vaccinated){% else %}(&#10060; call him @{{person.phone}} to get  vaccinated){% endif %}
       </li>
     {% endfor %}
   </ul>

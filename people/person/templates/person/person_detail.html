@@ -9,8 +9,8 @@
 <p><strong> Vaccine :</strong>{{person.vaccine}}</p>
 
 
-
-<h4>Jharsewa Certificate</h4>
+{% if person.jharsewa_set.all %}
+<h3>Jharsewa Certificate</h3>
 <table>
 <tr>
 <th><strong>Type</strong></th>
@@ -27,8 +27,10 @@
 </tr>
 {%endfor%}
 </table>
+{% endif %}
 
-<h4>Issued Id</h4>
+{% if person.identy_set.all %}
+<h3>Issued Id</h3>
 <table>
 <tr>
 <th><strong>Type</strong></th>
@@ -44,7 +46,9 @@
 {%endfor%}
 </table>
 
-<h4>Education</h4>
+{% endif %}
+{% if person.education_set.all %}
+<h3>Education</h3>
 <table>
 <tr>
 <th><strong>YOP</strong></th>
@@ -65,6 +69,6 @@
 </tr>
 {%endfor%}
 </table>
-
+{% endif %}
 
 {% endblock %}

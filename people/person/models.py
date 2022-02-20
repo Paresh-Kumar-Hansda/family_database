@@ -1,6 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+
+class Parent(models.Model):
+        name=models.CharField(max_length=200, null=True ,blank=True)
+        def __str__(self):
+                return self.name
+
+
+
 class Person(models.Model):
         VAC=[
              ('covidshield', (
@@ -15,10 +23,11 @@ class Person(models.Model):
           ),
            ('unknown', 'Unknown'),
            ]
-        name = models.CharField(max_length=200,blank=True,  null=True)
-        father = models.ForeignKey("self",on_delete= models.SET_NULL,related_name="baba",max_length=200, null=True)
-        mother=models.ForeignKey("self",on_delete= models.SET_NULL,max_length=200,blank=True, null=True)
-        phone = models.CharField(max_length=200, null=True)
+        name = models.CharField(max_length=200, null=True)
+        django_username = models.ForeignKey(User,on_delete= models.SET_NULL,max_length=200,blank=True,  null=True)
+        father = models.ForeignKey(Parent,on_delete= models.SET_NULL,related_name="beta",max_length=200,blank=True, null=True)
+        mother=models.ForeignKey(Parent,on_delete= models.SET_NULL,related_name="child",max_length=200,blank=True, null=True)
+        phone = models.CharField(max_length=200, null=True ,blank=True)
         #uida = models.CharField(max_length=200, null=True)
         #pan_no=models.CharField(max_length=200, null=True)
         dob = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
@@ -27,7 +36,9 @@ class Person(models.Model):
         #voter_id = models.CharField(max_length=200, null=True)
         vaccine=models.CharField(max_length=200,blank=True, null=True, choices=VAC)
         def __str__(self):
-                return self.name
+                return str(self.name)
+
+
 
 class Jharsewa(models.Model):
         JHAR=(
@@ -46,7 +57,7 @@ class Jharsewa(models.Model):
 
 
 class Identy(models.Model):
-        ID=(("uida","uida"),("pan","pan"),("voter_id","voter_id"),)
+        ID=(("uida","uida"),("pan","pan"),("voter_id","voter_id"),("covid","covid"),)
         person = models.ForeignKey(Person, on_delete= models.SET_NULL, null=True)
         #product = models.ForeignKey(Product, on_delete= models.SET_NULL, null=True)
         #date_of_issue = models.DateField(auto_now=False, auto_now_add=False, null=T>
