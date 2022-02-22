@@ -1,6 +1,7 @@
 {% extends "base_generic.html" %}
 {% block content %}
 <h2> personal detail </h2>
+<img src="{{ person.image.url }}"style="float:right;width:62px;height:62px;" class="card-img-top img-fluid" alt="{{ person.name }}">
 <h1><strong>{{person.name}}</strong></h1>
 <p><strong>Phone :</strong>{{person.phone}}</p>
 <p><strong>DOB :</strong>{{person.dob}}</p>
