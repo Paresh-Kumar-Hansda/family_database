@@ -24,7 +24,7 @@ class Person(models.Model):
            ('unknown', 'Unknown'),
            ]
         name = models.CharField(max_length=200, null=True)
-        django_username = models.ForeignKey(User,on_delete= models.SET_NULL,max_length=200,blank=True,  null=True)
+        django_username = models.OneToOneField(User,on_delete= models.SET_NULL,max_length=200,blank=True,  null=True)
         image= models.ImageField(blank=True, upload_to='profile_images',null=True)
         father = models.ForeignKey(Parent,on_delete= models.SET_NULL,related_name="beta",max_length=200,blank=True, null=True)
         mother=models.ForeignKey(Parent,on_delete= models.SET_NULL,related_name="child",max_length=200,blank=True, null=True)
@@ -37,7 +37,7 @@ class Person(models.Model):
         #voter_id = models.CharField(max_length=200, null=True)
         vaccine=models.CharField(max_length=200,blank=True, null=True, choices=VAC)
         def __str__(self):
-                return str(self.name)
+                return str(self.django_username)
 
 
 
