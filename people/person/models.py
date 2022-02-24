@@ -25,7 +25,7 @@ class Person(models.Model):
            ]
         name = models.CharField(max_length=200, null=True)
         django_username = models.OneToOneField(User,on_delete= models.SET_NULL,max_length=200,blank=True,  null=True)
-        image= models.ImageField(blank=True, upload_to='profile_images',null=True)
+        image= models.ImageField(blank=False, upload_to='profile_images',null=False,default='default.jpg')
         father = models.ForeignKey(Parent,on_delete= models.SET_NULL,related_name="beta",max_length=200,blank=True, null=True)
         mother=models.ForeignKey(Parent,on_delete= models.SET_NULL,related_name="child",max_length=200,blank=True, null=True)
         phone = models.CharField(max_length=200, null=True ,blank=True)
