@@ -24,16 +24,17 @@ th:nth-child(even),td:nth-child(even) {
 </head>
 <body>
 <div class="container-sm border py-3 my-3">
-<div class="container border py-3 my-3"><h3><a href="{% url "person" %}">All Members</a><h3></div>
-<div class="col-md-9">
+<div class="container border py-3 my-3"><h3><a href="{% url "person" %}">All Members</a><h3>
+<div class="navbar-nav">
 {% if user.is_authenticated %}
-     <li>User: {{ user.get_username }}</li>
-    <li><a href="{% url 'profile' %}">Update Your Profile</a></li>
-     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+     <div class="d-inline p-2 bg-primary text-white">User: {{ user.get_username }}</div>
+    <div class="d-inline p-2 bg-dark text-white"><a href="{% url 'profile' %}">Profile</a></div>
+     <div class="d-inline p-2 bg-red text-white"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>
    {% else %}
      <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
      <li> <a href="{% url 'register' %}">Register</a></li>
    {% endif %}
+</div>
 </div>
 {% block content %}
 
