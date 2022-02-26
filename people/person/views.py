@@ -56,27 +56,21 @@ def profile(request):
 @login_required
 def identy(request):
     if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST,
-                                   request.FILES,
-                                   instance=request.user.person)
-        i_form = IdentyUpdateForm(request.POST,
-                                   request.FILES,
-                                   instance=request.user.person.identy)
-        if u_form.is_valid() and p_form.is_valid() and i_form.is_valid():
-            u_form.save()
-            p_form.save()
+        #u_form = UserUpdateForm(request.POST, instance=request.user)
+        #p_form = ProfileUpdateForm(request.POST, request.FILES,instance=request.user.person)
+        i_form = IdentyUpdateForm(request.POST)
+        if i_form.is_valid():
+            #u_form.save()
+            #p_form.save()
             i_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('identy') # Redirect back to profile page
+            return redirect('person-detail') # Redirect back to profile page
 
     else:
-        u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.person)
-        i_form = IdentyUpdateForm(instance=request.user.person.identy)
+        #u_form = UserUpdateForm(instance=request.user)
+        #p_form = ProfileUpdateForm(instance=request.user.person)
+        i_form = IdentyUpdateForm()
     context = {
-        'u_form': u_form,
-        'p_form': p_form,
         'i_form': i_form,
     }
 
