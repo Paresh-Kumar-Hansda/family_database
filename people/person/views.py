@@ -14,7 +14,7 @@ class PersonDetailView(LoginRequiredMixin,generic.DetailView):
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
 # Import User UpdateForm, ProfileUpdatForm
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm,IdentyUpdateForm
 
 def register(request):
     if request.method == 'POST':
@@ -53,3 +53,31 @@ def profile(request):
 
     return render(request, 'person/profile.html', context)
 
+@login_required
+def identy(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.person)
+        i_form = IdentyUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.person.identy)
+        if u_form.is_valid() and p_form.is_valid() and i_form.is_valid():
+            u_form.save()
+            p_form.save()
+            i_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('identy') # Redirect back to profile page
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.person)
+        i_form = IdentyUpdateForm(instance=request.user.person.identy)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+        'i_form': i_form,
+    }
+
+    return render(request, 'person/identy.html', context)

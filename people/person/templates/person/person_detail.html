@@ -32,24 +32,22 @@
 </table>
 {% endif %}
 
-{% if person.identy_set.all %}
 <h3>Issued Id</h3>
 <table>
 <tr>
 <th><strong>Type</strong></th>
 <th><stong>Id No</strong></th>
 <th><strong>Remark</strong></th>
+<th><strong>pdf</strong></th>
 </tr>
-{% for id in person.identy_set.all %}
 <tr>
-<td>{{id.id_type}}</td>
-<td>  {{id.cert_no}}</td>
-<td>{{id.remark}}</td>
+<td>{{person.identy.id_type}}</td>
+<td>  {{person.identy.cert_no}}</td>
+<td>{{person.identy.remark}}</td>
+<td><iframe src="{{person.identy.idcard.url}}" style="width: 100%;height: 100%;border: none"></iframe></td>
 </tr>
-{%endfor%}
 </table>
 
-{% endif %}
 {% if person.education_set.all %}
 <h3>Education</h3>
 <table>

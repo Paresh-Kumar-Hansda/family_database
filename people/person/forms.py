@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Person
+from .models import Person, Identy
 
 
 class UserRegisterForm(UserCreationForm):
@@ -25,3 +25,8 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Person
         fields = "__all__"
 
+# Create a IdentyUpdateForm to update image
+class IdentyUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Identy
+        fields = "__all__"
