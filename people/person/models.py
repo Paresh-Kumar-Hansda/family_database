@@ -38,7 +38,9 @@ class Person(models.Model):
         vaccine=models.CharField(max_length=200,blank=True, null=True, choices=VAC)
         def __str__(self):
                 return str(self.django_username)
-
+        def get_absolute_url(self):
+            """Returns the url to access a detail record for this book."""
+            return reverse('person-detail', args=[str(self.id)])
 
 
 class Jharsewa(models.Model):

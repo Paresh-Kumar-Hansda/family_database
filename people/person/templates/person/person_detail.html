@@ -1,6 +1,8 @@
 {% extends "base_generic.html" %}
 {% block content %}
-<h2> personal detail </h2>
+<a href="{% url "person-detail" person.id %}"class="btn btn-primary">Home</a>
+ <a href="{% url 'jharsewa' %}"class="btn btn-secondary">jharupdate</a>
+
 <img src="{{ person.image.url }}"style="float:right;width:62px;height:62px;" class="card-img-top img-fluid" alt="{{ person.name }}">
 <h1><strong>{{person.name}}</strong></h1>
 <p><strong>Phone :</strong>{{person.phone}}</p>

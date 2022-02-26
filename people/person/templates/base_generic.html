@@ -24,15 +24,16 @@ th:nth-child(even),td:nth-child(even) {
 </head>
 <body>
 <div class="container-sm border py-3 my-3">
-<div class="container border py-3 my-3"><h3><a href="{% url "person" %}">All Members</a><h3>
-<div class="navbar-nav">
+<div class="container border py-3 my-3"><h3><a href="{% url "person" %}"class="btn">All Members</a><h3>
+<div>
 {% if user.is_authenticated %}
-     <div class="d-inline p-2 bg-primary text-white">User: {{ user.get_username }}</div>
-    <div class="d-inline p-2 bg-dark text-white"><a href="{% url 'profile' %}">Profile</a></div>
-     <div class="d-inline p-2 bg-danger text-white"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>
+     User: {{ user.get_username }}
+    
+<a href="{% url 'profile' %}"class="btn btn-info">Profile</a>
+     <a href="{% url 'logout'%}?next={{request.path}}"class="btn btn-danger">Logout</a>
    {% else %}
-     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-     <li> <a href="{% url 'register' %}">Register</a></li>
+     <a href="{% url 'login'%}?next={{request.path}}"class="btn btn-secondary">Login</a>
+     <a href="{% url 'register' %}"class="btn btn-warning">Register</a>
    {% endif %}
 </div>
 </div>
