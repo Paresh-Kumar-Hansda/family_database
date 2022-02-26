@@ -14,7 +14,7 @@ class PersonDetailView(LoginRequiredMixin,generic.DetailView):
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
 # Import User UpdateForm, ProfileUpdatForm
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm,IdentyUpdateForm, JharsewaForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm,IdentyUpdateForm, JharsewaForm, EducationForm
 
 def register(request):
     if request.method == 'POST':
@@ -98,3 +98,22 @@ def jharsewa(request):
     else:
         form = JharsewaForm()
     return render(request, 'person/jharsewa.html', {'form': form})
+
+
+
+def edu(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = EducationForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            form.save()
+            # redirect to a new URL:
+            return HttpResponseRedirect('person')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = EducationForm()
+    return render(request, 'person/edu.html', {'form': form})

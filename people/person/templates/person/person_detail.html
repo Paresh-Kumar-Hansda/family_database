@@ -2,7 +2,7 @@
 {% block content %}
 <a href="{% url "person-detail" person.id %}"class="btn btn-primary">Home</a>
  <a href="{% url 'jharsewa' %}"class="btn btn-secondary">jharupdate</a>
-
+<a href="{% url 'education' %}"class="btn btn-secondary">EduUpdate</a>
 <img src="{{ person.image.url }}"style="float:right;width:62px;height:62px;" class="card-img-top img-fluid" alt="{{ person.name }}">
 <h1><strong>{{person.name}}</strong></h1>
 <p><strong>Phone :</strong>{{person.phone}}</p>
@@ -60,7 +60,9 @@
 <th><strong>Roll No</strong></th>
 <th><strong>CGPA/%</strong></th>
 <th><strong>Scored</strong></th>
-<th><strong>PassCert</strong></th>
+<th><strong>PassDoc</strong></th>
+<th><strong>MarkPdf</strong></th>
+<th><strong>AdmitPdf</strong></th>
 </tr>
 {% for edu in person.education_set.all %}
 <tr>
@@ -71,6 +73,8 @@
 <td>{{edu.cgpa_perc}}</td>
 <td>{{edu.scored}}</td>
 <td><iframe src="{{edu.passing.url}}" style="width: 100%;height: 100%;border: none;"></iframe></td>
+<td><iframe src="{{edu.marksheet.url}}" style="width: 100%;height: 100%;border: none;"></iframe></td>
+<td><iframe src="{{edu.admit.url}}" style="width: 100%;height: 100%;border: none;"></iframe></td>
 </tr>
 {%endfor%}
 </table>

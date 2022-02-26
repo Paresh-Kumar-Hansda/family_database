@@ -1,9 +1,19 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Person, Identy, Jharsewa
+from .models import Person, Identy, Jharsewa, Education
 class DateInput(forms.DateInput):
     input_type = 'date'
+
+
+class EducationForm(forms.ModelForm):
+    class Meta:
+        model = Education
+        fields = "__all__"
+        widgets = {
+            'year_of_pass': DateInput(),
+        }
+
 
 class JharsewaForm(forms.ModelForm):
     class Meta:

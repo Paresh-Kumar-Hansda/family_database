@@ -99,7 +99,7 @@ class Education(models.Model):
 
         person = models.ForeignKey(Person, on_delete= models.SET_NULL, null=True)
         #product = models.ForeignKey(Product, on_delete= models.SET_NULL, null=True)
-        year_of_pass = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
+        year_of_pass = models.DateField()
         board = models.CharField(max_length=200, null=True, choices=BOARD)
         exam_passed = models.CharField(max_length=200, null=True, choices=EXAM)
         admit = models.FileField(upload_to='admit/',null=True,blank=True)
