@@ -1,6 +1,12 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 # Create your models here.
+
+
+def user_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'user_{0}/{1}'.format(instance.person.id, filename)
 
 class Parent(models.Model):
         name=models.CharField(max_length=200, null=True ,blank=True)
@@ -60,6 +66,9 @@ class Jharsewa(models.Model):
                 return "%s %s" % (self.date_of_issue, self.cert_no)
 
 
+
+
+
 class Identy(models.Model):
         ID=(("uida","uida"),("pan","pan"),("voter_id","voter_id"),("covid","covid"),)
         person = models.ForeignKey(Person, on_delete= models.SET_NULL, null=True)
@@ -69,7 +78,7 @@ class Identy(models.Model):
         #cert_type=models.CharField(max_length=200, null=True,choices=JHAR)
         cert_no = models.CharField(max_length=200, null=True)
         remark=models.CharField(max_length=200, null=True)
-        idcard = models.FileField(upload_to='id/',null=False,blank=False,default='default.jpg')
+        idcard = models.FileField(upload_to=user_directory_path,blank=True)
         def __str__(self):
                 return "%s %s" % (self.id_type, self.cert_no)
 

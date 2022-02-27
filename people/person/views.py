@@ -58,13 +58,13 @@ def identy(request):
     if request.method == 'POST':
         #u_form = UserUpdateForm(request.POST, instance=request.user)
         #p_form = ProfileUpdateForm(request.POST, request.FILES,instance=request.user.person)
-        i_form = IdentyUpdateForm(request.POST)
+        i_form = IdentyUpdateForm(request.POST,request.FILES)
         if i_form.is_valid():
             #u_form.save()
             #p_form.save()
             i_form.save()
-            messages.success(request, f'Your account has been updated!')
-            return redirect('person-detail') # Redirect back to profile page
+            messages.success(request, f'Your account id  has been updated!')
+            return redirect('identy') # Redirect back to profile page
 
     else:
         #u_form = UserUpdateForm(instance=request.user)
@@ -80,13 +80,13 @@ def jharsewa(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = JharsewaForm(request.POST)
+        form = JharsewaForm(request.POST,request.FILES)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
             form.save()
             # redirect to a new URL:
-            return HttpResponseRedirect('person')
+            return HttpResponseRedirect('jharsewa')
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -99,13 +99,13 @@ def edu(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = EducationForm(request.POST)
+        form = EducationForm(request.POST,request.FILES)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
             form.save()
             # redirect to a new URL:
-            return HttpResponseRedirect('person')
+            return HttpResponseRedirect('edu')
 
     # if a GET (or any other method) we'll create a blank form
     else:
