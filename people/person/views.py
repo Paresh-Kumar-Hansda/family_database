@@ -73,7 +73,7 @@ def profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('profile') # Redirect back to profile page
+            return redirect('/profile') # Redirect back to profile page
 
     else:
         u_form = UserUpdateForm(instance=request.user)
@@ -169,3 +169,22 @@ def idupdate(request,pk):
     }
 
     return render(request, 'person/identy.html', context)
+
+
+
+
+@login_required
+def id_del(request,pk):
+    context ={}
+    idinst=get_object_or_404(Identy,pk=pk)
+    if request.method == 'POST':
+        #u_form = UserUpdateForm(request.POST, instance=request.user)
+        #p_form = ProfileUpdateForm(request.POST, request.FILES,instance=request.us>
+        #i_form = IdentyUpdateForm(request.POST,request.FILES,instance=idinst)
+        #if i_form.is_valid():
+        idinst.delete()
+        messages.success(request, f'Your one id  has been deleted!')
+        return redirect('/index') # Redirect back to profile page
+
+    return render(request, 'person/id_del.html', context)
+

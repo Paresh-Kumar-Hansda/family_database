@@ -44,6 +44,7 @@
 <th><stong>Id No</strong></th>
 <th><strong>Remark</strong></th>
 <th><strong>pdf</strong></th>
+<th><strong>DELETE</strong></th>
 <th><strong>update</strong></th>
 </tr>
 {% for id in person.identy_set.all %}
@@ -57,6 +58,7 @@
     </embed>
 </object>
 {% endif %}</td>
+<td><a href="{% url "id_del" id.id %}">DELETE</a></td>
 <td><a href="{% url "idupdate" id.id %}">update</a></td>
 </tr>
 {%endfor%}
