@@ -4,16 +4,17 @@
 <a href="{% url 'education' %}"class="btn btn-secondary">EduUpdate</a>
 <a href="{% url 'identy' %}"class="btn btn-secondary">IdentyUpdate</a>
 <img src="{{ person.image.url }}"style="float:right;width:80px;height:100px;" class="card-img-top img-fluid" alt="{{ person.name }}">
-<h1><strong>{{person.name}}</strong></h1>
+<h1 id="header"><strong>{{person.name}}</strong></h1>
 <p><strong>Phone :</strong><a href ="tel:"{{person.phone}}"">{{person.phone}}</a></p>
 <p><strong>DOB :</strong>{{person.dob}}</p>
 <p><strong> Mother :</strong>{{person.mother}}</p>
 <p><strong> Father :</strong>{{person.father}}</p>
 <p><strong> Vaccine :</strong>{{person.vaccine}}</p>
-
-
+<p><a href="#C4">Jump to Education</a></p>
+<div style="background-color:MediumSeaGreen;color:white;padding:20px;">
 {% if person.jharsewa_set.all %}
-<h3>Jharsewa Certificate</h3>
+<h3 class="head">Jharsewa Certificate</h3>
+<div style="overflow-x: auto;">
 <table>
 <tr>
 <th><strong>Type</strong></th>
@@ -30,17 +31,19 @@
 <td>  {{jhar.cert_no}}</td>
 <td>{{jhar.date_of_issue}}</td>
 <td>{{jhar.token_no}}</td>
-<td><object data="{{jhar.document.url}}" style="width: 100%;height: 100%;border: none;" type:"application/pdf"></object></td>
+<td><iframe src="{{jhar.document.url}}"></iframe></td>
 <td><a href="{% url "jharupdate" jhar.id %}"class="btn btn-warning">update</a></td>
 <td><a href="{% url "jhar_del" jhar.id %}"class="btn btn-danger">Delete</a></td>
 </tr>
 {%endfor%}
 </table>
+</div>
 {% endif %}
 
-
+</div>
 {% if person.identy_set.all %}
-<h3>Issued Id</h3>
+<h3 class="head">Issued Id</h3>
+<div style="overflow-x: auto;">
 <table>
 <tr>
 <th><strong>Type</strong></th>
@@ -66,11 +69,13 @@
 </tr>
 {%endfor%}
 </table>
+</div>
 {% endif %}
 
 
 {% if person.education_set.all %}
-<h3>Education</h3>
+<h3 id="c4" class="head">Education</h3>
+<div style="overflow-x: auto;">
 <table>
 <tr>
 <th><strong>YOP</strong></th>
@@ -93,14 +98,15 @@
 <td>{{edu.roll_no}}</td>
 <td>{{edu.cgpa_perc}}</td>
 <td>{{edu.scored}}</td>
-<td><iframe src="{{edu.passing.url}}" style="width: 100%;height: 100%;border: none;"></iframe></td>
-<td><iframe src="{{edu.marksheet.url}}" style="width: 100%;height: 100%;border: none;"></iframe></td>
-<td><iframe src="{{edu.admit.url}}" style="width: 100%;height: 100%;border: none;"></iframe></td>
+<td><iframe src="{{edu.passing.url}}""></iframe></td>
+<td><iframe src="{{edu.marksheet.url}}""></iframe></td>
+<td><iframe src="{{edu.admit.url}}"></iframe></td>
 <td><a href="{% url "edu_del" edu.id %}"class="btn btn-danger">DELETE</a></td>
 <td><a href="{% url "eduupdate" edu.id %}"class="btn btn-warning">Update</a></td>
 </tr>
 {%endfor%}
 </table>
+</div>
 {% endif %}
 
 {% endblock %}

@@ -1,0 +1,30 @@
+.head {
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-left: 6px solid red;
+ 
+}
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+
+}
+td {
+  text-align: center;
+}
+tr:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+
+th:nth-child(even),td:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+
+div {
+  background-color: green;
+}
+h1{
+  text-shadow: 2px 2px;
+  font-size: 40px;
+}
