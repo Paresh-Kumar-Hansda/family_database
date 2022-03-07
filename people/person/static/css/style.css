@@ -1,5 +1,5 @@
 .head {
-  color: white;
+  color: black;
   padding: 10px;
   text-align: center;
   border-left: 6px solid red;
@@ -22,9 +22,49 @@ th:nth-child(even),td:nth-child(even) {
 }
 
 div {
-  background-color: green;
+  background-color: none;
 }
 h1{
   text-shadow: 2px 2px;
   font-size: 40px;
 }
+/* Style the top navigation bar */
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: none;
+ 
+  
+  position: fixed;
+  width: 100%;
+  overflow: auto;
+}
+li a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+li {
+  float: left;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }

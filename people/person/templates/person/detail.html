@@ -1,18 +1,27 @@
+
 {% extends "base_generic.html" %}
 {% block content %}
- <a href="{% url 'jharsewa' %}"class="btn btn-secondary">jharupdate</a>
+
+<a href="{% url 'jharsewa' %}"class="btn btn-secondary">jharupdate</a>
 <a href="{% url 'education' %}"class="btn btn-secondary">EduUpdate</a>
 <a href="{% url 'identy' %}"class="btn btn-secondary">IdentyUpdate</a>
+
+<div class="row">
+
+  <div class="column">
+
 <img src="{{ person.image.url }}"style="float:right;width:80px;height:100px;" class="card-img-top img-fluid" alt="{{ person.name }}">
-<h1 id="header"><strong>{{person.name}}</strong></h1>
+<h1><strong>{{person.name}}</strong></h1>
 <p><strong>Phone :</strong><a href ="tel:"{{person.phone}}"">{{person.phone}}</a></p>
 <p><strong>DOB :</strong>{{person.dob}}</p>
 <p><strong> Mother :</strong>{{person.mother}}</p>
 <p><strong> Father :</strong>{{person.father}}</p>
 <p><strong> Vaccine :</strong>{{person.vaccine}}</p>
-<p><a href="#C4">Jump to Education</a></p>
-<div style="background-color:MediumSeaGreen;color:white;padding:20px;">
+
+</div>
+
 {% if person.jharsewa_set.all %}
+<div class="column">
 <h3 class="head">Jharsewa Certificate</h3>
 <div style="overflow-x: auto;">
 <table>
@@ -38,10 +47,13 @@
 {%endfor%}
 </table>
 </div>
+</div>
 {% endif %}
 
 </div>
 {% if person.identy_set.all %}
+
+<div class="column">
 <h3 class="head">Issued Id</h3>
 <div style="overflow-x: auto;">
 <table>
@@ -70,11 +82,13 @@
 {%endfor%}
 </table>
 </div>
+</div>
 {% endif %}
 
 
 {% if person.education_set.all %}
-<h3 id="c4" class="head">Education</h3>
+<div class="column">
+<h3 class="head">Education</h3>
 <div style="overflow-x: auto;">
 <table>
 <tr>
@@ -106,6 +120,8 @@
 </tr>
 {%endfor%}
 </table>
+</div>
+</div>
 </div>
 {% endif %}
 
