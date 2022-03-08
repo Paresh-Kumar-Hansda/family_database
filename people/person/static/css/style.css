@@ -3,8 +3,26 @@
   padding: 10px;
   text-align: center;
   border-left: 6px solid red;
+  font-family: 'Times New Roman', serif;
  
 }
+
+#corner1 {
+  border-radius: 15px 50px 30px 5px;
+  background: #73AD21;
+  padding: 20px; 
+  width: 100%;
+  height: 100%; 
+}
+
+#corner3 {
+  border-radius: 15px;
+  background: #73AD21;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
 table, th, td {
   border: 1px solid white;
   border-collapse: collapse;
@@ -20,9 +38,10 @@ tr:nth-child(even) {
 th:nth-child(even),td:nth-child(even) {
   background-color: rgba(150, 212, 212, 0.4);
 }
-
 div {
-  background-color: none;
+  background-color: lightgrey;
+  
+  
 }
 h1{
   text-shadow: 2px 2px;
@@ -31,12 +50,17 @@ h1{
 /* Style the top navigation bar */
 ul {
   list-style-type: none;
-  overflow: hidden;
-  background-color: none;
  
+  background-color: none;
+  margin: 0;
+  padding: 0; 
   
-  position: fixed;
-  width: 100%;
+  top: 0;
+  width: 100%;  
+ 
+  position: -webkit-sticky; /* Safari */
+  position: sticky;  
+  
   overflow: auto;
 }
 li a {
@@ -45,15 +69,37 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  background-color: #dddddd;
 }
 li a:hover {
   background-color: #ddd;
   color: black;
 }
 
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+
 li {
   float: left;
+  border-right: 1px solid #bbb;
+  text-align: center;
+ a
+  display: inline;
 }
+
+li:last-child {
+  border-right: none;
+  
+}
+
 .column {
   float: left;
   width: 33.33%;
