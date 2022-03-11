@@ -7,15 +7,15 @@
   <div id="corner1"class="column">
 
 <div class="dropdown">
-  <button class="dropbtn"><i class="material-icons" style="font-size:48px;color:red">cloud_upload</i></button>
+  <button class="dropbtn"><i class="material-icons" style="color:blue">cloud_upload</i></button>
   <div class="dropdown-content">
-<a href="{% url 'jharsewa' %}"class="btn btn-secondary">jharupdate</a>
-<a href="{% url 'education' %}"class="btn btn-warning">EduUpdate</a>
-<a href="{% url 'identy' %}"class="btn btn-secondary">IdentyUpdate</a>
+<a href="{% url 'jharsewa' %}">jharupdate</a>
+<a href="{% url 'education' %}">EduUpdate</a>
+<a href="{% url 'identy' %}">IdentyUpdate</a>
 </div>
 </div>
 
-<img src="{{ person.image.url }}"style="float:right;width:80px;height:100px;" class="card-img-top img-fluid" alt="{{ person.name }}">
+<img src="{{ person.image.url }}"style="float:right;width:100px;height:125px;" class="card-img-top img-fluid" alt="{{ person.name }}">
 <h1><strong>{{person.name}}</strong></h1>
 <p><strong>Phone :</strong><a href ="tel:"{{person.phone}}"">{{person.phone}}</a></p>
 <p><strong>DOB :</strong>{{person.dob}}</p>
@@ -58,7 +58,7 @@
 {% if person.identy_set.all %}
 
 <div id="corner3" class="column">
-<h3 class="head"><i class="fa fa-id-card-o" style="font-size:48px;color:red;"></i>Ids</h3>
+<h3 class="head"><i class="fa-solid fa-id-card" style="font-size:48px;color:red;"></i>Identy cards</h3>
 <div style="overflow-x: auto;">
 <table>
 <tr>
