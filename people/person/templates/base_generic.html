@@ -43,10 +43,10 @@
 
 {% if user.is_authenticated %}
 <ul>
-<li><button><i class='fas fa-user-lock' style='color:red;font-size:32px;'></i>{{ user.get_username }}</button></li>
+<li><button><i class='fas fa-user-lock' style='color:lue;font-size:32px;'></i>{{ user.get_username }}</button></li>
 
-<li><a href="{% url 'home' %}"class="btn"><i class="fa fa-home" style="color:red;font-size:32px;"></i></a></li>
-<li><a href="{% url 'profile' %}"class="btn btn-info"><i class='fas fa-user-edit' style='color:red ;font-size:32px;'></i></a></li>
+<li><a href="{% url 'home' %}"class="btn"><i class="fa fa-home" style="color:#59981A;font-size:32px;"></i></a></li>
+<li><a href="{% url 'profile' %}"class="btn btn-info"><i class='fas fa-user-edit' style='color:blue ;font-size:32px;'></i></a></li>
 <li><a href="{% url 'logout'%}?next=/"><i class='fas fa-sign-out-alt' style='color:red'></i></a></li>
 </ul>
    {% else %}
