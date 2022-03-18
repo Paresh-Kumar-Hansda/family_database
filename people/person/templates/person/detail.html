@@ -15,7 +15,7 @@
 </div>
 </div>
 
-<img src="{{ person.image.url }}"style="float:right;width:100px;height:125px;" class="card-img-top img-fluid" alt="{{ person.name }}">
+<img src="{{ person.image.url }}"style="float:right;width:150px;height:188px;border-radius: 50%;" class="card-img-top img-fluid" alt="{{ person.name }}">
 <h1><strong>{{person.name}}</strong></h1>
 <p><strong>Phone :</strong><a href ="tel:"{{person.phone}}"">{{person.phone}}</a></p>
 <p><strong>DOB :</strong>{{person.dob}}</p>
@@ -49,9 +49,9 @@
 <td>  {{jhar.cert_no}}</td>
 <td>{{jhar.date_of_issue}}</td>
 <td>{{jhar.token_no}}</td>
-<td><a href="{{jhar.document.url}}"><button class="btn"><i class="fas fa-file-download"style="font-size:48px;color:MediumSeaGreen ;"></i>Download</button></a></td>
-<td><a href="{% url "jharupdate" jhar.id %}"><button class="btn"><i class="fa fa-refresh" style="font-size:48px;color:MediumSeaGreen"></i>Update</button></a></td>
-<td><a href="{% url "jhar_del" jhar.id %}"><i class="material-icons" style="font-size:48px;color:red">delete</i></a></td>
+<td><a href="{{jhar.document.url}}"><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen ;"></i>Download</button></a></td>
+<td><a href="{% url "jharupdate" jhar.id %}"><button class="btn"><i class="fa fa-refresh" style="font-size:30px;color:MediumSeaGreen"></i>Update</button></a></td>
+<td><a href="{% url "jhar_del" jhar.id %}"><i class="material-icons" style="font-size:30px;color:red">delete</i></a></td>
 </tr>
 {%endfor%}
 </table>
@@ -79,10 +79,10 @@
 <td>{{id.id_type}}</td>
 <td>  {{id.cert_no}}</td>
 <td>{{id.remark}}</td>
-<td>{% if id.idcard %}<a href="{% url "pdf" id.id %}"><button class="btn"><i class="fas fa-file-download"style="font-size:48px;color:MediumSeaGreen"></i>view</button></a>
+<td>{% if id.idcard %}<a href="{% url "pdf" id.id %}"><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen"></i>view</button></a>
 {% endif %}</td>
-<td><a href="{% url "id_del" id.id %}"class="btn"><i class="fa fa-remove" style="font-size:48px;color:red"></i>Delete</a></td>
-<td><a href="{% url "idupdate" id.id %}"><i class="fa fa-edit" style="font-size:32px;color:blue"></i>Edit</a></td>
+<td><a href="{% url "id_del" id.id %}"class="btn"><i class="fa fa-remove" style="font-size:30px;color:red"></i>Delete</a></td>
+<td><a href="{% url "idupdate" id.id %}"><i class="fa fa-edit" style="font-size:30px;color:blue"></i>Edit</a></td>
 </tr>
 {%endfor%}
 </table>
@@ -120,11 +120,11 @@
 <td>{{edu.roll_no}}</td>
 <td>{{edu.cgpa_perc}}</td>
 <td>{{edu.scored}}</td>
-<td><a href="{{edu.passing.url}}""><button class="btn"><i class="fas fa-file-download"style="font-size:48px;color:MediumSeaGreen;"></i>Download</button></a></td>
-<td><a href="{{edu.marksheet.url}}""><button class="btn"><i class="fas fa-file-download"style="font-size:48px;color:MediumSeaGreen;"></i>Download</button></a></td>
+<td><a href="{{edu.passing.url}}""><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen;"></i>Download</button></a></td>
+<td><a href="{{edu.marksheet.url}}""><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen;"></i>Download</button></a></td>
 <td><a href="{{edu.admit.url}}"></a><button class="btn"><i class="fas fa-file-download"style="font-size:48px;color:MediumSeaGreen;"></i>Download</button></td>
-<td><a href="{% url "edu_del" edu.id %}"><i class="material-icons" style="font-size:48px;color:red">delete</i></a></td>
-<td><a href="{% url "eduupdate" edu.id %}"><i class="fa fa-edit" style="font-size:48px;color:blue"></i>Edit</a></td>
+<td><a href="{% url "edu_del" edu.id %}"><i class="material-icons" style="font-size:30px;color:red">delete</i></a></td>
+<td><a href="{% url "eduupdate" edu.id %}"><i class="fa fa-edit" style="font-size:30px;color:blue"></i>Edit</a></td>
 </tr>
 {%endfor%}
 </table>
@@ -155,7 +155,7 @@
 <td>{{edu.specialisation}}</td>
 <td>{{edu.cgpa_perc}}</td>
 <td>{{edu.scored}}</td>
-<td><a href="{{edu.marksheet.url}}"><button class="btn"><i class="fa fa-file-pdf-o" style="font-size:48px;color:green"></i>Download</button></a></td>
+<td><a href="{{edu.marksheet.url}}"><button class="btn"><i class="fa fa-file-pdf-o" style="font-size:30px;color:green"></i>Download</button></a></td>
 <td><a href="{{edu.admit.url}}"><button class="btn"><i class="fa fa-download"style="color:MediumSeaGreen""></i> Download</button></a></td>
 </tr>
 {%endfor%}
