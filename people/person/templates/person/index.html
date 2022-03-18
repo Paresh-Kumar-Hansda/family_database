@@ -5,12 +5,12 @@
   <p>Welcome to Digilocker, a website developed by <em>Mozilla Developer Network</em></p>
 <h2>Dynamic content</h2>
   <p>The Digilocker  has the following record counts:</p>
-  <ul>
+  <ol>
     <li><strong>Total member:</strong> {{ num_person }}</li>
     <li><strong>Identy cards:</strong> {{ num_id }}</li>
     <li><strong>Jharsewa certificates:</strong> {{ num_jhar }}</li>
     <li><strong>Educational certificates:</strong> {{ num_edu }}</li>
-  </ul>
+  </ol>
 <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
 
 {% endblock %}

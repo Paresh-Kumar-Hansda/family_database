@@ -2,13 +2,13 @@
 {% block content %}
 
   {% if person_list %}
-  <ul>
+  <ol>
     {% for person in person_list %}
-      <li>
+      <li style="color:green;  background-color: none;  "  >
         <a href="{% url "person-detail" person.id %}">{{ person.name }}</a> {% if person.vaccine %}(&#x2714;vaccinated){% else %}(&#10060; call him @{{person.phone}} to get  vaccinated){% endif %}
       </li>
     {% endfor %}
-  </ul>
+  </ol>
   {% else %}
     <p>No person added</p>
   {% endif %}
