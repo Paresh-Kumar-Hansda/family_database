@@ -49,7 +49,10 @@
 <td>  {{jhar.cert_no}}</td>
 <td>{{jhar.date_of_issue}}</td>
 <td>{{jhar.token_no}}</td>
-<td><a href="{{jhar.document.url}}"><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen ;"></i>Download</button></a></td>
+<td>
+{% if jhar.document  %}
+<a href="{{jhar.document.url}}"><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen ;"></i>Download</button></a></td>
+{% endif %}
 <td><a href="{% url "jharupdate" jhar.id %}"><button class="btn"><i class="fa fa-refresh" style="font-size:30px;color:MediumSeaGreen"></i>Update</button></a></td>
 <td><a href="{% url "jhar_del" jhar.id %}"><i class="material-icons" style="font-size:30px;color:red">delete</i></a></td>
 </tr>
@@ -120,9 +123,18 @@
 <td>{{edu.roll_no}}</td>
 <td>{{edu.cgpa_perc}}</td>
 <td>{{edu.scored}}</td>
-<td><a href="{{edu.passing.url}}""><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen;"></i>Download</button></a></td>
-<td><a href="{{edu.marksheet.url}}""><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen;"></i>Download</button></a></td>
-<td><a href="{{edu.admit.url}}"></a><button class="btn"><i class="fas fa-file-download"style="font-size:48px;color:MediumSeaGreen;"></i>Download</button></td>
+<td>
+{% if edu.passing %}
+<a href="{{edu.passing.url}}""><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen;"></i>Download</button></a></td>
+{% endif %}
+<td>
+{% if edu.marksheet %}
+<a href="{{edu.marksheet.url}}""><button class="btn"><i class="fas fa-file-download"style="font-size:30px;color:MediumSeaGreen;"></i>Download</button></a></td>
+{% endif %}
+<td>
+{% if edu.admit %}
+<a href="{{edu.admit.url}}"></a><button class="btn"><i class="fas fa-file-download"style="font-size:48px;color:MediumSeaGreen;"></i>Download</button></td>
+{% endif %}
 <td><a href="{% url "edu_del" edu.id %}"><i class="material-icons" style="font-size:30px;color:red">delete</i></a></td>
 <td><a href="{% url "eduupdate" edu.id %}"><i class="fa fa-edit" style="font-size:30px;color:blue"></i>Edit</a></td>
 </tr>
@@ -155,8 +167,14 @@
 <td>{{edu.specialisation}}</td>
 <td>{{edu.cgpa_perc}}</td>
 <td>{{edu.scored}}</td>
-<td><a href="{{edu.marksheet.url}}"><button class="btn"><i class="fa fa-file-pdf-o" style="font-size:30px;color:green"></i>Download</button></a></td>
-<td><a href="{{edu.admit.url}}"><button class="btn"><i class="fa fa-download"style="color:MediumSeaGreen""></i> Download</button></a></td>
+<td>
+{% if edu.marksheet %}
+<a href="{{edu.marksheet.url}}"><button class="btn"><i class="fa fa-file-pdf-o" style="font-size:30px;color:green"></i>Download</button></a></td>
+{% endif %}
+<td>
+{% if edu.admit %}
+<a href="{{edu.admit.url}}"><button class="btn"><i class="fa fa-download"style="color:MediumSeaGreen""></i> Download</button></a></td>
+{% endif %}
 </tr>
 {%endfor%}
 </table>

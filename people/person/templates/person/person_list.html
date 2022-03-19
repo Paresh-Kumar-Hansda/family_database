@@ -1,6 +1,7 @@
 {% extends "base_generic.html" %}
 {% block content %}
 
+ {% if user.is_superuser %}
   {% if person_list %}
   <ol>
     {% for person in person_list %}
@@ -12,4 +13,9 @@
   {% else %}
     <p>No person added</p>
   {% endif %}
+
+ {% else %}
+<p>if you are new! Create new Account.</p>
+
+ {% endif %}
 {% endblock %}
