@@ -2,6 +2,7 @@
 *.log
 *.pdf
 *.jpg
+*.png
 # Python
 *.pyc/
 *.pyc
@@ -12,7 +13,7 @@ __pycache__
 # Env
 .env
 myvenv/
-env/
+myenv/
 # Database
 db.sqlite3
 
